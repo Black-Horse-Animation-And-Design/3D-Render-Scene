@@ -1207,7 +1207,8 @@ PrefabInstance:
       propertyPath: rotates
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4531716256083001174, guid: 7d1c249f59e8bc34aaa4f3357b1aa365, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8368192196903608943, guid: 7d1c249f59e8bc34aaa4f3357b1aa365, type: 3}
@@ -1228,7 +1229,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7593551552397267324, guid: 7d1c249f59e8bc34aaa4f3357b1aa365, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 957369855}
+      addedObject: {fileID: 957369856}
   m_SourcePrefab: {fileID: 100100000, guid: 7d1c249f59e8bc34aaa4f3357b1aa365, type: 3}
 --- !u!4 &957369853 stripped
 Transform:
@@ -1240,65 +1241,32 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7593551552397267324, guid: 7d1c249f59e8bc34aaa4f3357b1aa365, type: 3}
   m_PrefabInstance: {fileID: 957369852}
   m_PrefabAsset: {fileID: 0}
---- !u!212 &957369855
-SpriteRenderer:
-  serializedVersion: 2
+--- !u!114 &957369856
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 957369854}
   m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_MaskInteraction: 0
-  m_Sprite: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
-  m_SpriteSortPoint: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1282c6b822dec2f4888b9d31ac3736e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OfflineRenderer
+  framesToRender: 6200
+  targetFps: 60
+  secondsToConverge: 2
+  width: 3840
+  height: 2160
+  folder: Cleft Lip Anim
+  animator: {fileID: 957369857}
+  captureFrame: 0
+  animatorFrame: 0
+--- !u!95 &957369857 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3575643987949848109, guid: 7d1c249f59e8bc34aaa4f3357b1aa365, type: 3}
+  m_PrefabInstance: {fileID: 957369852}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &990475327
 GameObject:
   m_ObjectHideFlags: 0
@@ -1844,7 +1812,7 @@ Light:
   serializedVersion: 12
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 398529.16
+  m_Intensity: 284663.7
   m_Range: 10
   m_SpotAngle: 87.81656
   m_InnerSpotAngle: 21.80208
