@@ -29,7 +29,8 @@ public class OfflineRenderer : MonoBehaviour
         tex = new Texture2D(width, height, TextureFormat.RGB24, false);
 
         SetupAnimationInfo();
-
+        animator.Play(0, 0, 0f);
+        animator.Update(0f);
         Time.timeScale = 0f;
         yield return new WaitForSecondsRealtime(secondsToConverge);
 
@@ -37,6 +38,10 @@ public class OfflineRenderer : MonoBehaviour
         {
             UpdateAnimatorFrame();
 
+            animator.cullingMode = AnimatorCullingMode.AlwaysAnimate;
+
+
+            Time.timeScale = 0f;
             yield return new WaitForSecondsRealtime(secondsToConverge);
             yield return new WaitForEndOfFrame();
 
@@ -76,12 +81,13 @@ public class OfflineRenderer : MonoBehaviour
     {
         if (animator == null) yield break;
 
-        float nextFrameTime = (captureFrame + 1) / clipFPS;
+        float nextFrameTime = captureFrame / clipFPS;
+        float normalizedTime = nextFrameTime / clipLength;
 
         Time.timeScale = 0f;
 
-        animator.Play(0, 0, nextFrameTime / clipLength);
-        animator.Update(0f);
+        animator.Play(0, 0, normalizedTime);
+        animator.Update(1f / clipFPS); // <-- THIS is the ke
 
         yield return null;
 

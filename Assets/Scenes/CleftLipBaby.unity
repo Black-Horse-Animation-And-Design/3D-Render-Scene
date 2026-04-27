@@ -1253,9 +1253,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1282c6b822dec2f4888b9d31ac3736e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OfflineRenderer
-  framesToRender: 6200
+  framesToRender: 3132
   targetFps: 60
-  secondsToConverge: 2
+  secondsToConverge: 0.5
   width: 3840
   height: 2160
   folder: Cleft Lip Anim
