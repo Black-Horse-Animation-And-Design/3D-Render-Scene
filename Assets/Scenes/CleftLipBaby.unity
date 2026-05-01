@@ -940,8 +940,16 @@ PrefabInstance:
       value: CameraPivot
       objectReference: {fileID: 0}
     - target: {fileID: 8152999712087128363, guid: 7d1c249f59e8bc34aaa4f3357b1aa365, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.329
+      objectReference: {fileID: 0}
+    - target: {fileID: 8152999712087128363, guid: 7d1c249f59e8bc34aaa4f3357b1aa365, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8152999712087128363, guid: 7d1c249f59e8bc34aaa4f3357b1aa365, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.03
+      value: -0.484
       objectReference: {fileID: 0}
     - target: {fileID: 8368192196903608943, guid: 7d1c249f59e8bc34aaa4f3357b1aa365, type: 3}
       propertyPath: m_LocalPosition.x
