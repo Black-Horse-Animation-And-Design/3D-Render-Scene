@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.IO;
 using UnityEngine;
 
@@ -14,48 +14,52 @@ public class OfflineRenderer : MonoBehaviour
 
     [SerializeField] int captureFrame;
     [SerializeField] int animatorFrame;
+    [SerializeField] AnimationClip clip;
 
     int frameIndex;
     Texture2D tex;
 
     float clipLength;
     float clipFPS = 60f;
+    [SerializeField] float animSpeed;
 
     IEnumerator Start()
     {
+
         if (!Directory.Exists(folder))
             Directory.CreateDirectory(folder);
 
         tex = new Texture2D(width, height, TextureFormat.RGB24, false);
 
         SetupAnimationInfo();
+
+        animator.cullingMode = AnimatorCullingMode.AlwaysAnimate;
+
+        // initialize first pose
         animator.Play(0, 0, 0f);
         animator.Update(0f);
+
         Time.timeScale = 0f;
+
         yield return new WaitForSecondsRealtime(secondsToConverge);
 
         while (frameIndex < framesToRender)
         {
-            UpdateAnimatorFrame();
+            yield return StartCoroutine(AdvanceOneFrame());
+            transform.position += Vector3.forward * 0.00001f;
 
-            animator.cullingMode = AnimatorCullingMode.AlwaysAnimate;
-
-
-            Time.timeScale = 0f;
             yield return new WaitForSecondsRealtime(secondsToConverge);
+
             yield return new WaitForEndOfFrame();
 
             tex.ReadPixels(new Rect(0, 0, width, height), 0, 0);
             tex.Apply();
 
-            byte[] bytes = tex.EncodeToPNG();
             string path = folder + "/frame_" + frameIndex.ToString("D4") + ".png";
-            File.WriteAllBytes(path, bytes);
+            File.WriteAllBytes(path, tex.EncodeToPNG());
 
             frameIndex++;
             captureFrame++;
-
-            yield return StartCoroutine(AdvanceOneFrame());
         }
 
         Debug.Log("Render complete");
@@ -65,11 +69,12 @@ public class OfflineRenderer : MonoBehaviour
     {
         if (animator == null) return;
 
+        animator.speed = animSpeed;
+
         RuntimeAnimatorController controller = animator.runtimeAnimatorController;
 
         if (controller == null || controller.animationClips.Length == 0) return;
 
-        AnimationClip clip = controller.animationClips[0];
 
         clipLength = clip.length;
         clipFPS = clip.frameRate;
@@ -84,10 +89,9 @@ public class OfflineRenderer : MonoBehaviour
         float nextFrameTime = captureFrame / clipFPS;
         float normalizedTime = nextFrameTime / clipLength;
 
-        Time.timeScale = 0f;
-
         animator.Play(0, 0, normalizedTime);
-        animator.Update(1f / clipFPS); // <-- THIS is the ke
+
+        animator.Update(0f);
 
         yield return null;
 
