@@ -935,6 +935,22 @@ PrefabInstance:
       propertyPath: secondsToConverge
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 3575643987949848109, guid: 7d1c249f59e8bc34aaa4f3357b1aa365, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4383428798075350711, guid: 7d1c249f59e8bc34aaa4f3357b1aa365, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4383428798075350711, guid: 7d1c249f59e8bc34aaa4f3357b1aa365, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.228
+      objectReference: {fileID: 0}
+    - target: {fileID: 7325464298867362720, guid: 7d1c249f59e8bc34aaa4f3357b1aa365, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 09619f31f36c2454585549f7226d02cc, type: 2}
     - target: {fileID: 7593551552397267324, guid: 7d1c249f59e8bc34aaa4f3357b1aa365, type: 3}
       propertyPath: m_Name
       value: CameraPivot
